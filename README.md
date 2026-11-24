@@ -25,6 +25,13 @@ The dashboard is a separate starter UI and is not yet connected to the runtime A
 - `packages/shared`: shared schemas and types
 - `docs`: architecture and security notes
 
+## SubAgent capacity
+
+- Default configured limit: **40 SubAgents**.
+- Hard maximum: **100 SubAgents**.
+- Runtime configuration accepts `subAgentLimit` from 1 through 100.
+- MCP tool `mesh_get_subagent_capacity` reports current usage, configured limit, and hard maximum.
+
 ## Initial MCP tools
 - `mesh_list_agents`
 - `mesh_discover_agents`
