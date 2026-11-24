@@ -6,6 +6,10 @@ import type { MeshRuntime } from "@agent-mesh/core";
 export function createMcpServer(runtime: MeshRuntime) {
   const server = new McpServer({ name: "agent-mesh", version: "0.1.0" });
 
+  server.tool("mesh_get_subagent_capacity", "Show current SubAgent usage, configured limit, and hard maximum", {}, async () => ({
+    content: [{ type: "text", text: JSON.stringify(runtime.getSubAgentCapacity(), null, 2) }]
+  }));
+
   server.tool("mesh_list_agents", "List agents registered in this local mesh", {}, async () => ({
     content: [{ type: "text", text: JSON.stringify(runtime.listAgents(), null, 2) }]
   }));
